@@ -1,0 +1,72 @@
+<div id="map" style="width:100%;height:100%;"></div><script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=562beaefa8f3396ba21741328654bece"></script>
+<script>
+var mapContainer = document.getElementById('map'), 
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.5642135, 127.0016985), 
+        level: 7 
+    };
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+    // 마커를 표시할 위치와 title 객체 배열입니다 
+
+    var positions = []
+    positions.push({ title: '써브웨이', price: '12800', count: '1', latlng: new kakao.maps.LatLng(35.1548850769753, 126.847780829911)})
+positions.push({ title: '공차서울과학기술대점', price: '4500', count: '1', latlng: new kakao.maps.LatLng(37.6293964159781, 127.076521447735)})
+positions.push({ title: '투썸플레이스대학로점', price: '3800', count: '1', latlng: new kakao.maps.LatLng(37.5791742549942, 127.001795612107)})
+positions.push({ title: '주)스타벅스커피코리아', price: '4100', count: '1', latlng: new kakao.maps.LatLng(37.5601755439283, 126.982921061075)})
+positions.push({ title: 'GS25사당우성', price: '5500', count: '1', latlng: new kakao.maps.LatLng(37.4874091674613, 126.980196016972)})
+positions.push({ title: '지에스25강남시티힐점', price: '4500', count: '1', latlng: new kakao.maps.LatLng(37.5009839829803, 127.027956573334)})
+positions.push({ title: 'GS25성신행운', price: '5000', count: '1', latlng: new kakao.maps.LatLng(37.5892273301102, 127.020342137682)})
+positions.push({ title: '왕창할인마트', price: '3700', count: '1', latlng: new kakao.maps.LatLng(37.4883946353717, 126.978344313895)})
+positions.push({ title: 'GS25사당이수역점', price: '950', count: '1', latlng: new kakao.maps.LatLng(37.4881599256502, 126.981545782626)})
+positions.push({ title: '주)우아한형제들', price: '8000', count: '1', latlng: new kakao.maps.LatLng(37.5169302452841, 127.112781230361)})
+positions.push({ title: '장인닭갈비', price: '25500', count: '1', latlng: new kakao.maps.LatLng(35.2208448902244, 126.843716749104)})
+positions.push({ title: '보승회관', price: '42000', count: '1', latlng: new kakao.maps.LatLng(37.5539187763772, 127.077376623381)})
+positions.push({ title: '보화스위스', price: '10000', count: '1', latlng: new kakao.maps.LatLng(37.8690386382696, 127.718203403814)})
+positions.push({ title: '역전할머니맥주이수점', price: '17900', count: '1', latlng: new kakao.maps.LatLng(37.4863522910074, 126.980232251917)})
+positions.push({ title: '㈜이마트에브리데이사당동점', price: '4830', count: '1', latlng: new kakao.maps.LatLng(37.4897507862864, 126.978094820008)})
+positions.push({ title: '마쯔리', price: '124000', count: '1', latlng: new kakao.maps.LatLng(37.4318279054945, 127.130227183783)})
+positions.push({ title: '엔제리너스건대역', price: '4000', count: '1', latlng: new kakao.maps.LatLng(37.5403788036525, 127.070525733138)})
+positions.push({ title: '춘천집소문난집', price: '38000', count: '1', latlng: new kakao.maps.LatLng(37.5407002844582, 127.069912757288)})
+positions.push({ title: '씨제이올리브영(주)방배이수점', price: '9000', count: '1', latlng: new kakao.maps.LatLng(37.4870137411983, 126.982654942468)})
+positions.push({ title: '겐로쿠우동', price: '24500', count: '1', latlng: new kakao.maps.LatLng(37.5410734252121, 127.070908839841)})
+positions.push({ title: '(주)탐앤탐스건대탐스커버리', price: '4000', count: '1', latlng: new kakao.maps.LatLng(37.5400394432377, 127.069383050648)})
+positions.push({ title: '미스피츠(Misfits)', price: '14500', count: '1', latlng: new kakao.maps.LatLng(37.4825932514659, 126.981137975449)})
+positions.push({ title: '인쌩맥주이수역점', price: '12500', count: '1', latlng: new kakao.maps.LatLng(37.4862606351866, 126.980635705923)})
+positions.push({ title: '엔제리너스GS이수역DI점', price: '4000', count: '1', latlng: new kakao.maps.LatLng(37.4886819443995, 126.981965944898)})
+positions.push({ title: '아빠두리만든떡복이', price: '19000', count: '1', latlng: new kakao.maps.LatLng(37.5902175685, 127.009136884247)})
+positions.push({ title: '블루마일스커피로스터즈', price: '4500', count: '1', latlng: new kakao.maps.LatLng(37.6265850954439, 127.076618479503)})
+positions.push({ title: '씨유서울과기대점', price: '13500', count: '1', latlng: new kakao.maps.LatLng(37.6295843536003, 127.076394873773)})
+positions.push({ title: '네이버페이', price: '9340', count: '1', latlng: new kakao.maps.LatLng(37.5011928132831, 126.771628885256)})
+positions.push({ title: '(주)무신사', price: '46800', count: '1', latlng: new kakao.maps.LatLng(37.5278608384849, 127.036245575863)})
+positions.push({ title: 'UNITY', price: '25366', count: '1', latlng: new kakao.maps.LatLng(37.5001178464064, 127.03220096278)})
+
+    // 마커 이미지의 이미지 주소입니다
+    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+
+    for (var i = 0; i < positions.length; i ++) {
+
+        // 마커 이미지의 이미지 크기 입니다
+        var imageSize = new kakao.maps.Size(24, 35); 
+
+        // 마커 이미지를 생성합니다    
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            map: map, // 마커를 표시할 지도
+            position: positions[i].latlng, // 마커를 표시할 위치
+            title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+            image : markerImage // 마커 이미지 
+        });
+
+        var infowindow = new kakao.maps.InfoWindow({
+            position : positions[i].latlng, 
+            content : '<div style="width:100%;height:100%;font-size:11px">상호명 : ' + positions[i].title + '<br>방문횟수 : ' + positions[i].count + '<br>사용금액 : ' + positions[i].price +  '</div>'
+        });
+
+
+        infowindow.open(map, marker); 
+
+    }
+    </script>
