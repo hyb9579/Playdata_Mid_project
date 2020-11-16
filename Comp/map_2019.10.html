@@ -1,0 +1,60 @@
+<div id="map" style="width:100%;height:100%;"></div><script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=562beaefa8f3396ba21741328654bece"></script>
+<script>
+var mapContainer = document.getElementById('map'), 
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.566826, 126.9786567), 
+        level: 7 
+    };
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+    // 마커를 표시할 위치와 title 객체 배열입니다 
+
+    var positions = []
+    positions.push({ title: '자판기', price: '1000', count: '1', latlng: new kakao.maps.LatLng(37.5383303723553, 126.987097452984)})
+positions.push({ title: '성민양꼬치', price: '62000', count: '1', latlng: new kakao.maps.LatLng(37.4770960370923, 126.984382794844)})
+positions.push({ title: '네이버주식회사', price: '10000', count: '1', latlng: new kakao.maps.LatLng(37.3942796422602, 127.112131255488)})
+positions.push({ title: '세븐일레븐노원공릉그린점', price: '3100', count: '1', latlng: new kakao.maps.LatLng(37.6245976355883, 127.0783613752)})
+positions.push({ title: '라렌', price: '14000', count: '1', latlng: new kakao.maps.LatLng(37.4806047633012, 127.12366621502)})
+positions.push({ title: 'CU공릉플러스점', price: '1700', count: '1', latlng: new kakao.maps.LatLng(37.626849440018, 127.076487117736)})
+positions.push({ title: '리코스타코인노래연습장', price: '3000', count: '1', latlng: new kakao.maps.LatLng(37.5421539451273, 127.068550278641)})
+positions.push({ title: '뚜레쥬르공릉점', price: '29850', count: '1', latlng: new kakao.maps.LatLng(37.6279956104976, 127.07686359966)})
+positions.push({ title: '쥬씨', price: '6000', count: '1', latlng: new kakao.maps.LatLng(35.153600791509, 129.060259029784)})
+positions.push({ title: '씨유서울과학기술대2관점', price: '2340', count: '1', latlng: new kakao.maps.LatLng(37.6345240613145, 127.07728112475)})
+positions.push({ title: '호치킨', price: '23300', count: '1', latlng: new kakao.maps.LatLng(37.6517968884864, 127.046623232877)})
+positions.push({ title: '서양국수집', price: '5900', count: '1', latlng: new kakao.maps.LatLng(37.6291220286431, 127.076717262671)})
+positions.push({ title: '무봉리토종순대국', price: '17000', count: '1', latlng: new kakao.maps.LatLng(37.8151886421439, 127.135395671079)})
+positions.push({ title: '잔월', price: '25000', count: '1', latlng: new kakao.maps.LatLng(37.6263534683487, 127.075192150346)})
+positions.push({ title: '기린', price: '5900', count: '1', latlng: new kakao.maps.LatLng(36.7318599371288, 127.451090031658)})
+positions.push({ title: '맥도날드', price: '4900', count: '1', latlng: new kakao.maps.LatLng(37.4987083234515, 127.028660034939)})
+positions.push({ title: '주)스타벅스커피코리아', price: '4100', count: '1', latlng: new kakao.maps.LatLng(37.5601755439283, 126.982921061075)})
+positions.push({ title: '쪼매매운떡볶이', price: '16000', count: '1', latlng: new kakao.maps.LatLng(37.6282962949983, 127.077787284753)})
+
+    // 마커 이미지의 이미지 주소입니다
+    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+
+    for (var i = 0; i < positions.length; i ++) {
+
+        // 마커 이미지의 이미지 크기 입니다
+        var imageSize = new kakao.maps.Size(24, 35); 
+
+        // 마커 이미지를 생성합니다    
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            map: map, // 마커를 표시할 지도
+            position: positions[i].latlng, // 마커를 표시할 위치
+            title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+            image : markerImage // 마커 이미지 
+        });
+
+        var infowindow = new kakao.maps.InfoWindow({
+            position : positions[i].latlng, 
+            content : '<div style="width:100%;height:100%;font-size:11px">상호명 : ' + positions[i].title + '<br>방문횟수 : ' + positions[i].count + '<br>사용금액 : ' + positions[i].price +  '</div>'
+        });
+
+
+        infowindow.open(map, marker); 
+
+    }
+    </script>

@@ -1,0 +1,59 @@
+<div id="map" style="width:100%;height:100%;"></div><script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=562beaefa8f3396ba21741328654bece"></script>
+<script>
+var mapContainer = document.getElementById('map'), 
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.566826, 126.9786567), 
+        level: 7 
+    };
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+    // 마커를 표시할 위치와 title 객체 배열입니다 
+
+    var positions = []
+    positions.push({ title: '씨유이수나누리점', price: '4500', count: '1', latlng: new kakao.maps.LatLng(37.4876448251511, 126.981013458035)})
+positions.push({ title: '왕창할인마트', price: '4450', count: '1', latlng: new kakao.maps.LatLng(37.4883946353717, 126.978344313895)})
+positions.push({ title: '주식회사아성다이소', price: '1000', count: '1', latlng: new kakao.maps.LatLng(35.2212533386035, 128.681235260685)})
+positions.push({ title: '방배세명약국', price: '6000', count: '1', latlng: new kakao.maps.LatLng(37.486747765286, 126.982666423995)})
+positions.push({ title: 'GS25사당신동아점', price: '2000', count: '1', latlng: new kakao.maps.LatLng(37.4884554912542, 126.979568529184)})
+positions.push({ title: '밥은', price: '9000', count: '1', latlng: new kakao.maps.LatLng(37.7870312180427, 128.907981003376)})
+positions.push({ title: '씨제이올리브영(주)방배이수점', price: '9000', count: '1', latlng: new kakao.maps.LatLng(37.4870137411983, 126.982654942468)})
+positions.push({ title: 'KCP-결제', price: '132510', count: '1', latlng: new kakao.maps.LatLng(37.4807029582644, 126.896158438099)})
+positions.push({ title: '락휴코인노래연습장건대중문점', price: '2000', count: '1', latlng: new kakao.maps.LatLng(37.5424054990141, 127.071297878859)})
+positions.push({ title: '빽다방서울과기대점', price: '6000', count: '1', latlng: new kakao.maps.LatLng(37.6286765044367, 127.077111260585)})
+positions.push({ title: '결', price: '10900', count: '1', latlng: new kakao.maps.LatLng(37.5716468397392, 126.983516239836)})
+positions.push({ title: '(주)에이플러스비', price: '55965', count: '1', latlng: new kakao.maps.LatLng(37.5043458078704, 127.045859932687)})
+positions.push({ title: '(주)위메프', price: '41720', count: '1', latlng: new kakao.maps.LatLng(37.5096556162212, 127.063383582975)})
+positions.push({ title: 'e-스타디움', price: '8100', count: '1', latlng: new kakao.maps.LatLng(37.5756407185216, 126.890045057198)})
+positions.push({ title: '열린약국', price: '8000', count: '1', latlng: new kakao.maps.LatLng(37.4857451724818, 127.08351086983)})
+positions.push({ title: '광주약국', price: '17000', count: '1', latlng: new kakao.maps.LatLng(33.4811445778114, 126.490041058368)})
+positions.push({ title: '이수태평파리바게뜨', price: '4600', count: '1', latlng: new kakao.maps.LatLng(37.4873127927481, 126.980945473631)})
+
+    // 마커 이미지의 이미지 주소입니다
+    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+
+    for (var i = 0; i < positions.length; i ++) {
+
+        // 마커 이미지의 이미지 크기 입니다
+        var imageSize = new kakao.maps.Size(24, 35); 
+
+        // 마커 이미지를 생성합니다    
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            map: map, // 마커를 표시할 지도
+            position: positions[i].latlng, // 마커를 표시할 위치
+            title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+            image : markerImage // 마커 이미지 
+        });
+
+        var infowindow = new kakao.maps.InfoWindow({
+            position : positions[i].latlng, 
+            content : '<div style="width:100%;height:100%;font-size:11px">상호명 : ' + positions[i].title + '<br>방문횟수 : ' + positions[i].count + '<br>사용금액 : ' + positions[i].price +  '</div>'
+        });
+
+
+        infowindow.open(map, marker); 
+
+    }
+    </script>
