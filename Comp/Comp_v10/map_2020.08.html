@@ -1,0 +1,98 @@
+<div id="map" style="width:100%;height:100%;"></div><script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=562beaefa8f3396ba21741328654bece"></script>
+<script>
+var mapContainer = document.getElementById('map'), 
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.566826, 126.9786567), 
+        level: 7 
+    };
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+    // 마커를 표시할 위치와 title 객체 배열입니다 
+
+    var positions = []
+    positions.push({ title: '바나프레소삼성타운점', price: '6000', count: '2', latlng: new kakao.maps.LatLng(37.4954076853265, 127.027826145715)})
+positions.push({ title: '알파카피센터', price: '11800', count: '2', latlng: new kakao.maps.LatLng(37.4967852776426, 127.02764221559)})
+positions.push({ title: '알파강남본점', price: '1800', count: '1', latlng: new kakao.maps.LatLng(37.4967852776426, 127.02764221559)})
+positions.push({ title: '씨유강남승리점', price: '5000', count: '1', latlng: new kakao.maps.LatLng(37.4951230251758, 127.027962078063)})
+positions.push({ title: '방배세명약국', price: '6000', count: '1', latlng: new kakao.maps.LatLng(37.486747765286, 126.982666423995)})
+positions.push({ title: 'GS25사당우성', price: '3600', count: '2', latlng: new kakao.maps.LatLng(37.4874091674613, 126.980196016972)})
+positions.push({ title: '(주)코리아세븐과기대점', price: '15000', count: '2', latlng: new kakao.maps.LatLng(37.6277728658225, 127.09048756502)})
+positions.push({ title: '할리스커피종로3가점', price: '4000', count: '1', latlng: new kakao.maps.LatLng(37.5699488772432, 126.986807088116)})
+positions.push({ title: '씨유이수나누리점', price: '5200', count: '2', latlng: new kakao.maps.LatLng(37.4876448251511, 126.981013458035)})
+positions.push({ title: '장미맨숀이수점', price: '172700', count: '2', latlng: new kakao.maps.LatLng(37.4840923090738, 126.98088534916)})
+positions.push({ title: '위드미사당남사점', price: '5000', count: '1', latlng: new kakao.maps.LatLng(37.4835496286049, 126.980866831717)})
+positions.push({ title: '이디야이수중앙점', price: '2500', count: '1', latlng: new kakao.maps.LatLng(37.4846689361421, 126.979177332667)})
+positions.push({ title: '배스킨라빈스공릉점', price: '8200', count: '1', latlng: new kakao.maps.LatLng(37.6274647024526, 127.078576223252)})
+positions.push({ title: '이디야서울과기대점', price: '2500', count: '1', latlng: new kakao.maps.LatLng(37.6282962949983, 127.077787284753)})
+positions.push({ title: 'GS25서울산업대', price: '1500', count: '1', latlng: new kakao.maps.LatLng(37.6278942792433, 127.077643902521)})
+positions.push({ title: '무봉리토종순대국', price: '14000', count: '1', latlng: new kakao.maps.LatLng(37.8151886421439, 127.135395671079)})
+positions.push({ title: '키친로지', price: '10000', count: '1', latlng: new kakao.maps.LatLng(37.6262262942069, 127.078579677367)})
+positions.push({ title: '커피베이서울과학기술대학교점', price: '7200', count: '1', latlng: new kakao.maps.LatLng(37.6297193105373, 127.076132755144)})
+positions.push({ title: '블루마일스커피로스터즈', price: '4500', count: '1', latlng: new kakao.maps.LatLng(37.6265850954439, 127.076618479503)})
+positions.push({ title: '와플스타', price: '3500', count: '1', latlng: new kakao.maps.LatLng(37.6247099534864, 127.077870092024)})
+positions.push({ title: '다이소(공릉점)', price: '2000', count: '1', latlng: new kakao.maps.LatLng(37.6264557243819, 127.074491271089)})
+positions.push({ title: '주)스타벅스커피코리아', price: '4800', count: '1', latlng: new kakao.maps.LatLng(37.5601755439283, 126.982921061075)})
+positions.push({ title: 'CU홍대동교로점', price: '7500', count: '2', latlng: new kakao.maps.LatLng(37.5570888533458, 126.92249764259)})
+positions.push({ title: '김창훈포차', price: '72500', count: '1', latlng: new kakao.maps.LatLng(37.5445868965055, 127.069197500749)})
+positions.push({ title: '(주)탐앤탐스건대탐스커버리', price: '4000', count: '1', latlng: new kakao.maps.LatLng(37.5400394432377, 127.069383050648)})
+positions.push({ title: 'GS25사당이수역점', price: '6000', count: '1', latlng: new kakao.maps.LatLng(37.4881599256502, 126.981545782626)})
+positions.push({ title: '내가찜한닭강남역점', price: '24000', count: '1', latlng: new kakao.maps.LatLng(37.4998804830571, 127.02773484589)})
+positions.push({ title: '와이비엠넷', price: '2000', count: '1', latlng: new kakao.maps.LatLng(37.4020687071228, 127.106670696623)})
+positions.push({ title: '마쯔리', price: '86000', count: '1', latlng: new kakao.maps.LatLng(37.4318279054945, 127.130227183783)})
+positions.push({ title: '이디야커피서울숲점', price: '2500', count: '1', latlng: new kakao.maps.LatLng(37.6186447170128, 127.045610626326)})
+positions.push({ title: 'GS25사당신동아점', price: '1500', count: '1', latlng: new kakao.maps.LatLng(37.4884554912542, 126.979568529184)})
+positions.push({ title: '주식회사아성다이소', price: '1000', count: '1', latlng: new kakao.maps.LatLng(35.2212533386035, 128.681235260685)})
+positions.push({ title: '오센', price: '39500', count: '1', latlng: new kakao.maps.LatLng(37.4871925597254, 126.980707943447)})
+positions.push({ title: '스노우폭스플라워강남2호점', price: '7300', count: '1', latlng: new kakao.maps.LatLng(37.5006713666299, 127.027041892851)})
+
+    // 마커 이미지의 이미지 주소입니다
+    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+
+    for (var i = 0; i < positions.length; i ++) {
+
+        // 마커 이미지의 이미지 크기 입니다
+        //var imageSize = new kakao.maps.Size(24, 35); 
+
+        // 마커 이미지를 생성합니다    
+        //var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            map: map, // 마커를 표시할 지도
+            position: positions[i].latlng, // 마커를 표시할 위치
+        //    title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        //    image : markerImage // 마커 이미지 
+        });
+
+        var infowindow = new kakao.maps.InfoWindow({
+            //position : positions[i].latlng, 
+            content : '<div style="width:100%;height:100%;font-size:11px">상호명 : ' + positions[i].title + '<br>방문횟수 : ' + positions[i].count + '<br>사용금액 : ' + positions[i].price +  '</div>'
+        });
+        
+        
+        kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+        kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+        
+        //marker.setMap(map);
+
+
+        //infowindow.open(map, marker); 
+        
+        
+
+    }
+    
+    function makeOverListener(map, marker, infowindow) {
+        return function() {
+            infowindow.open(map, marker);
+        };
+    }
+
+    // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+    function makeOutListener(infowindow) {
+        return function() {
+            infowindow.close();
+        };
+    }
+    
+    </script>
