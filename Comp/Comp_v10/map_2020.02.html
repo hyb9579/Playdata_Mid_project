@@ -1,0 +1,96 @@
+<div id="map" style="width:100%;height:100%;"></div><script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=562beaefa8f3396ba21741328654bece"></script>
+<script>
+var mapContainer = document.getElementById('map'), 
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.566826, 126.9786567), 
+        level: 7 
+    };
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+    // 마커를 표시할 위치와 title 객체 배열입니다 
+
+    var positions = []
+    positions.push({ title: '자판기', price: '2200', count: '2', latlng: new kakao.maps.LatLng(37.5383303723553, 126.987097452984)})
+positions.push({ title: '빽다방서울과기대점', price: '17100', count: '4', latlng: new kakao.maps.LatLng(37.6286765044367, 127.077111260585)})
+positions.push({ title: '세븐일레븐노원공릉그린점', price: '37550', count: '10', latlng: new kakao.maps.LatLng(37.6245976355883, 127.0783613752)})
+positions.push({ title: '빽다방안암역점', price: '2000', count: '1', latlng: new kakao.maps.LatLng(37.5866684958712, 127.030109549294)})
+positions.push({ title: '씨유고대동문점', price: '5000', count: '1', latlng: new kakao.maps.LatLng(37.5836819054777, 127.029308474757)})
+positions.push({ title: '씨유성북안암', price: '2000', count: '1', latlng: new kakao.maps.LatLng(37.5807248570075, 127.025364834574)})
+positions.push({ title: '밥은', price: '21500', count: '3', latlng: new kakao.maps.LatLng(37.7870312180427, 128.907981003376)})
+positions.push({ title: '츠판러마', price: '6000', count: '1', latlng: new kakao.maps.LatLng(37.6244212585384, 127.076521558257)})
+positions.push({ title: 'GS25공릉타운점', price: '2300', count: '1', latlng: new kakao.maps.LatLng(37.6259433093151, 127.078421693524)})
+positions.push({ title: '이마트24노원공릉점', price: '8900', count: '2', latlng: new kakao.maps.LatLng(37.6249345631284, 127.077743114464)})
+positions.push({ title: 'GS25사당신동아점', price: '7400', count: '1', latlng: new kakao.maps.LatLng(37.4884554912542, 126.979568529184)})
+positions.push({ title: '네이버파이낸셜(주)', price: '10000', count: '3', latlng: new kakao.maps.LatLng(37.3595166368758, 127.105210637192)})
+positions.push({ title: '나라아트센터', price: '4000', count: '1', latlng: new kakao.maps.LatLng(37.6288901638869, 127.076363802951)})
+positions.push({ title: '다이소(공릉점)', price: '5000', count: '2', latlng: new kakao.maps.LatLng(37.6264557243819, 127.074491271089)})
+positions.push({ title: '라렌', price: '17000', count: '1', latlng: new kakao.maps.LatLng(37.4806047633012, 127.12366621502)})
+positions.push({ title: '주)스타벅스커피코리아', price: '4100', count: '1', latlng: new kakao.maps.LatLng(37.5601755439283, 126.982921061075)})
+positions.push({ title: '주)우아한형제들', price: '92900', count: '5', latlng: new kakao.maps.LatLng(37.5169302452841, 127.112781230361)})
+positions.push({ title: '씨유성균관대경영관점', price: '2880', count: '1', latlng: new kakao.maps.LatLng(37.5887469561476, 126.991927598859)})
+positions.push({ title: '맥도날드', price: '8200', count: '2', latlng: new kakao.maps.LatLng(37.4987083234515, 127.028660034939)})
+positions.push({ title: '(주)코리아세븐과기대점', price: '9000', count: '1', latlng: new kakao.maps.LatLng(37.6277728658225, 127.09048756502)})
+positions.push({ title: '숲속왕돈까스', price: '6500', count: '1', latlng: new kakao.maps.LatLng(37.6289454851633, 127.076640614042)})
+positions.push({ title: '취향저격', price: '2000', count: '1', latlng: new kakao.maps.LatLng(37.5956205449237, 127.060824072898)})
+positions.push({ title: '신의주찹쌀순대', price: '7000', count: '1', latlng: new kakao.maps.LatLng(37.6399362512699, 127.064257298855)})
+positions.push({ title: '알파문구공릉역점', price: '1200', count: '1', latlng: new kakao.maps.LatLng(37.6263919476469, 127.072297411214)})
+positions.push({ title: '주식회사진선우유통', price: '6930', count: '1', latlng: new kakao.maps.LatLng(37.6264443920501, 127.078896187208)})
+positions.push({ title: '호치킨', price: '23900', count: '1', latlng: new kakao.maps.LatLng(37.6517968884864, 127.046623232877)})
+positions.push({ title: '기린', price: '5900', count: '1', latlng: new kakao.maps.LatLng(36.7318599371288, 127.451090031658)})
+positions.push({ title: 'CU공릉플러스점', price: '9700', count: '1', latlng: new kakao.maps.LatLng(37.626849440018, 127.076487117736)})
+positions.push({ title: '7일간의양심', price: '106000', count: '1', latlng: new kakao.maps.LatLng(37.6262170742682, 127.073306458241)})
+positions.push({ title: '지지고서울과기대점', price: '88000', count: '2', latlng: new kakao.maps.LatLng(37.6293964159781, 127.076521447735)})
+positions.push({ title: '씨유서울과학기술대2관점', price: '720', count: '1', latlng: new kakao.maps.LatLng(37.6345240613145, 127.07728112475)})
+positions.push({ title: '에이스문화사', price: '4600', count: '1', latlng: new kakao.maps.LatLng(37.6282962949983, 127.077787284753)})
+
+    // 마커 이미지의 이미지 주소입니다
+    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+
+    for (var i = 0; i < positions.length; i ++) {
+
+        // 마커 이미지의 이미지 크기 입니다
+        //var imageSize = new kakao.maps.Size(24, 35); 
+
+        // 마커 이미지를 생성합니다    
+        //var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            map: map, // 마커를 표시할 지도
+            position: positions[i].latlng, // 마커를 표시할 위치
+        //    title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        //    image : markerImage // 마커 이미지 
+        });
+
+        var infowindow = new kakao.maps.InfoWindow({
+            //position : positions[i].latlng, 
+            content : '<div style="width:100%;height:100%;font-size:11px">상호명 : ' + positions[i].title + '<br>방문횟수 : ' + positions[i].count + '<br>사용금액 : ' + positions[i].price +  '</div>'
+        });
+        
+        
+        kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
+        kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+        
+        //marker.setMap(map);
+
+
+        //infowindow.open(map, marker); 
+        
+        
+
+    }
+    
+    function makeOverListener(map, marker, infowindow) {
+        return function() {
+            infowindow.open(map, marker);
+        };
+    }
+
+    // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+    function makeOutListener(infowindow) {
+        return function() {
+            infowindow.close();
+        };
+    }
+    
+    </script>
